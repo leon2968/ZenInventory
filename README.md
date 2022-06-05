@@ -7,7 +7,7 @@ A online inventory manager
 - To build an inventory management System
 
 *What tools are we using?
-- Java, Spring, IntelliJ
+- Java, Spring, IntelliJ, MySQL
 
 *What is the design?
 - OOP around items {product ID, productm quantity, product price, etc}
