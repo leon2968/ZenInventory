@@ -4,11 +4,14 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+import com.zheng.zeninventory.model.Supplier;
 import com.zheng.zeninventory.model.Supplier;
 import com.zheng.zeninventory.repository.SupplierRepository;
 import com.zheng.zeninventory.service.SupplierServices;
 
+@Service
 public class SupplierServicesImpl implements SupplierServices {
 	
 	@Autowired
@@ -16,38 +19,40 @@ public class SupplierServicesImpl implements SupplierServices {
 	
 	@Override
 	public List<Supplier> getAllSuppliers() {
-		// TODO Auto-generated method stub
-		return null;
+		return supplierRepository.findAll();
 	}
 
 	@Override
 	public Optional<Supplier> getSupplierById(Long id) {
-		// TODO Auto-generated method stub
-		return Optional.empty();
+		return supplierRepository.findById(id);
 	}
 
 	@Override
 	public void addSupplier(Supplier supplier) {
-		// TODO Auto-generated method stub
-
+		supplierRepository.save(supplier);
 	}
-
+	
 	@Override
 	public void updateSupplier(long id, Supplier supplier) {
-		// TODO Auto-generated method stub
+		Optional<Supplier> supplierData = supplierRepository.findById(id);
 
+		if (supplierData.isPresent()) {
+			Supplier _supplier = supplierData.get();
+			_supplier.setSupplierName(supplier.getSupplierName());
+			_supplier.setSupplierAddress(supplier.getSupplierAddress());
+			_supplier.setSupplierPhoneNo(supplier.getSupplierPhoneNo());
+			supplierRepository.save(_supplier);
+		}
 	}
-
+	
 	@Override
 	public void deleteSupplier(long id) {
-		// TODO Auto-generated method stub
-
+		supplierRepository.deleteById(id);
 	}
-
+	
 	@Override
 	public void deleteAllSuppliers() {
-		// TODO Auto-generated method stub
-
+		supplierRepository.deleteAll();
 	}
 
 }

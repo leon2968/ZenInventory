@@ -4,11 +4,14 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+import com.zheng.zeninventory.model.VendorOrder;
 import com.zheng.zeninventory.model.VendorOrder;
 import com.zheng.zeninventory.repository.VendorOrderRepository;
 import com.zheng.zeninventory.service.VendorOrderServices;
 
+@Service
 public class VendorOrderServicesImpl implements VendorOrderServices {
 	
 	@Autowired
@@ -16,38 +19,41 @@ public class VendorOrderServicesImpl implements VendorOrderServices {
 	
 	@Override
 	public List<VendorOrder> getAllVendorOrders() {
-		// TODO Auto-generated method stub
-		return null;
+		return vendorOrderRepository.findAll();
 	}
-
+	
 	@Override
 	public Optional<VendorOrder> getVendorOrderById(Long id) {
-		// TODO Auto-generated method stub
-		return Optional.empty();
+		return vendorOrderRepository.findById(id);
 	}
-
+	
 	@Override
 	public void createVendorOrder(VendorOrder vendorOrder) {
-		// TODO Auto-generated method stub
-
+		vendorOrderRepository.save(vendorOrder);
 	}
-
+	
 	@Override
 	public void updateVendorOrder(long id, VendorOrder vendorOrder) {
-		// TODO Auto-generated method stub
+		Optional<VendorOrder> vendorOrderData = vendorOrderRepository.findById(id);
 
+		if (vendorOrderData.isPresent()) {
+			VendorOrder _vendorOrder = vendorOrderData.get();
+			_vendorOrder.setSupplier(vendorOrder.getSupplier());
+			_vendorOrder.setSuppliedProduct(vendorOrder.getSuppliedProduct());
+			_vendorOrder.setSuppliedQuantity(vendorOrder.getSuppliedQuantity());
+			_vendorOrder.setCost(vendorOrder.getCost());
+			vendorOrderRepository.save(_vendorOrder);
+		}
 	}
-
+	
 	@Override
 	public void deleteVendorOrder(long id) {
-		// TODO Auto-generated method stub
-
+		vendorOrderRepository.deleteById(id);
 	}
-
+	
 	@Override
 	public void deleteAllVendorOrders() {
-		// TODO Auto-generated method stub
-
+		vendorOrderRepository.deleteAll();
 	}
 
 }

@@ -1,4 +1,4 @@
-package com.zheng.zeninventory.controller;
+package com.zheng.zeninventory.controller.restapi;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -14,7 +14,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api")
-public class CustomerOrderController {
+public class CustomerOrderRestController {
 
 	@Autowired
 	private CustomerOrderServices customerOrderServices;
@@ -51,15 +51,7 @@ public class CustomerOrderController {
 // To update a tutorial record, we used the same save() and findById()
 	@PutMapping("/customerOrders/{id}")
    public void updateCustomerOrder(@PathVariable("id") long id, @RequestBody CustomerOrder customerOrder) {
-       Optional<CustomerOrder> customerOrderData = customerOrderServices.getCustomerOrderById(id);
-
-       if (customerOrderData.isPresent()) {
-    	   CustomerOrder _customerOrder = customerOrderData.get();
-           _customerOrder.setProduct(customerOrder.getProduct());
-           _customerOrder.setPurchaseQuantity(customerOrder.getPurchaseQuantity());
-           _customerOrder.setPurchasePrice(customerOrder.getPurchaseQuantity());
-           customerOrderServices.createCustomerOrder(_customerOrder);
-       }
+       customerOrderServices.updateCustomerOrder(id, customerOrder);
    }
 
 	// <input type="hidden" name="_method" value="delete"/>

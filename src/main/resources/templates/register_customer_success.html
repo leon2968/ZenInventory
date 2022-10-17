@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="ISO-8859-1">
+<title>Registration Success</title>
+<link th:href="@{/styles.css}" rel="stylesheet" />
+</head>
+
+<body>
+	<div align="center">
+		<h2>Customer Registed</h2>
+		<span>Customer ID:</span>
+		<span th:text="${customer.customerId}"></span><br />
+		<span>Customer Name:</span>
+		<span th:text="${customer.customerName}"></span><br />
+		<span>Address:</span>
+		<span th:text="${customer.customerAddress}"></span><br />
+		<span>Phone No.:</span> 
+		<span th:text="${customer.customerPhoneNo}"></span><br />
+	</div>
+</body>
+
+</html>

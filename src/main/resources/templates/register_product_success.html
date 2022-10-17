@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="ISO-8859-1">
+<title>Registration Success</title>
+<link th:href="@{/styles.css}" rel="stylesheet" />
+</head>
+
+<body>
+	<div align="center">
+		<h2>Product Registed</h2>
+		<span>Product ID:</span>
+		<span th:text="${product.productId}"></span><br />
+		<span>Product Name:</span>
+		<span th:text="${product.productName}"></span><br />
+		<span>Product Quantity:</span>
+		<span th:text="${product.productQuantity}"></span><br />
+		<span>Minimum Stock:</span> 
+		<span th:text="${product.minimumStock}"></span><br />
+		<span>Product Description:</span> 
+		<span th:text="${product.productDesc}"></span><br />
+	</div>
+</body>
+
+</html>
