@@ -4,7 +4,7 @@ A online inventory manager
 #Planninng Phase
 
 *What is the goal?
-- To build an inventory management System
+- To build an inventory management System for business owners
 
 *What tech stack are we using?
 - Java, Spring Boot, Spring Web, Hibernate, MariaDB/MySQL, JavaScript, HTML/CSS, Postman
@@ -18,10 +18,10 @@ A online inventory manager
 - Inventory Management
 - Order Management
 - Customer Management
-- User Management
 
 *What is the plan for future developments?
-- User privilege dependency
+- User Management and user privilege dependency
+- Supplier Management and price comparisons
 - Customer recent order lists
 - Import/export function
 - Shipment function
