@@ -1,4 +1,4 @@
-# ZenManager
+# ZenInventory
 A online inventory manager
 
 #Planninng Phase
@@ -6,13 +6,13 @@ A online inventory manager
 *What is the goal?
 - To build an inventory management System
 
-*What tools are we using?
-- Java, MySQL, NetBeans for GUI design
+*What tech stack are we using?
+- Java, Spring Boot, Spring Web, Hibernate, MariaDB/MySQL, JavaScript, HTML/CSS, Postman
 
 *What is the design?
-- OOP around items {product ID, productm quantity, product price, etc}
-- a database to store the data
-- a GUI panel
+- OOP around items {product, orders, customers etc}
+- a database to map entities
+- a web application to allow user interactive CRUD operations
 
 *What functions are currently being developed/supported?
 - Inventory Management
