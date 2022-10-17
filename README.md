@@ -18,10 +18,10 @@ A online inventory manager
 - Inventory Management
 - Order Management
 - Customer Management
-- User Management
 
 *What is the plan for future developments?
-- User privilege dependency
+- User Management and user privilege dependency
+- Supplier Management and price comparisons
 - Customer recent order lists
 - Import/export function
 - Shipment function
