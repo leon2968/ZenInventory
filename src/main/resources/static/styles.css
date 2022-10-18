@@ -13,7 +13,7 @@ input[type=text], input[type=password], select {
 textarea {
 	display: inline-block;
 	width: 200px;
-	margin-top:5px;
+	margin-top: 5px;
 }
 
 input[type=radio] {
@@ -33,4 +33,9 @@ span {
 	display: inline-block;
 	width: 200px;
 	text-align: left;
+}
+
+input:read-only {
+	pointer-events: none;
+	background: lightgrey;
 }

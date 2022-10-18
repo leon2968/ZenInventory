@@ -34,7 +34,8 @@ public class CutomerServicesImpl implements CustomerServices {
 	@Override
 	public void updateCustomer(long id, Customer customer) {
 		Optional<Customer> customerData = customerRepository.findById(id);
-
+		System.out.println(id);
+		System.out.println(customerData.isPresent());
 		if (customerData.isPresent()) {
 			Customer _customer = customerData.get();
 			_customer.setCustomerName(customer.getCustomerName());
@@ -46,6 +47,7 @@ public class CutomerServicesImpl implements CustomerServices {
 	
 	@Override
 	public void deleteCustomer(long id) {
+		System.out.println("detelte!");
 		customerRepository.deleteById(id);
 	}
 	

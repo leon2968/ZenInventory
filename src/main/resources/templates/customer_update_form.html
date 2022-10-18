@@ -11,16 +11,20 @@
 </head>
 <body>
 	<div align="center">
-		<h1>Customer Registration</h1>
-		<form action="#" th:action="@{/registerCustomer}" method="post"
+		<h1>Customer Informate Update</h1>
+		<form action="#" th:action="@{/updateCustomer}" method="post"
 			th:object="${customer}">
-			<label>Customer name:</label> <input type="text" th:field="*{customerName}" /><br />
+			
+			<!-- Add disabled form field to handle update -->
+            <label>Customer ID:</label> <input type="text" readonly th:field="*{customerId}" /><br />
+			
+			<label>Customer Name:</label> <input type="text" th:field="*{customerName}" /><br />
 
 			<label>Address:</label> <input type="text" th:field="*{customerAddress}" /><br />
 
 			<label>Phone No.:</label> <input type="text" th:field="*{customerPhoneNo}" /><br />
 
-			<button type="submit" class="btn btn-info col-2"> Register Customer </button>
+			<button type="submit" class="btn btn-info col-2"> Update </button>
 		</form>
 		
 	</div>
