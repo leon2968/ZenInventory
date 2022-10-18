@@ -7,21 +7,23 @@ A online inventory manager
 - To build an inventory management System for business owners
 
 *What tech stack are we using?
-- Java, Spring Boot, Spring Web, Hibernate, MariaDB/MySQL, JavaScript, HTML/CSS, Postman
+- Java, Spring Boot, Spring Web, Hibernate, MariaDB/MySQL, JavaScript, HTML/CSS
 
 *What is the design?
-- OOP around items {product, orders, customers etc}
-- a database to map entities
-- a web application to allow user interactive CRUD operations
+- Sprimg MVC pattern
+- four major entities {customers, suppliers, products, orders}
+- a database for mapping entities
+- repository -> service - > serviceImpl -> controller
+- thymeleafs template htmls to allow user interactions
 
 *What functions are currently being developed/supported?
-- Inventory Management
-- Order Management
 - Customer Management
+- Supplier Management
+- Order Management (curretnly developling)
 
 *What is the plan for future developments?
 - User Management and user privilege dependency
-- Supplier Management and price comparisons
+- supplier price comparisons
 - Customer recent order lists
 - Import/export function
-- Shipment function
+- Shipment status report

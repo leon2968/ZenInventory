@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="ISO-8859-1">
+<title>Registration Success</title>
+<link th:href="@{/styles.css}" rel="stylesheet" />
+</head>
+
+<body>
+<div th:replace="fragments/nav.html :: topnav"></div>
+	<div align="center">
+		<h2>Supplier Registed</h2>
+		<span>Supplier ID:</span>
+		<span th:text="${supplier.supplierId}"></span><br />
+		<span>Supplier Name:</span>
+		<span th:text="${supplier.supplierName}"></span><br />
+		<span>Address:</span>
+		<span th:text="${supplier.supplierAddress}"></span><br />
+		<span>Phone No.:</span> 
+		<span th:text="${supplier.supplierPhoneNo}"></span><br />
+		<div class="form-group">
+				<label class="col-md-4 control-label" for="suppliedProducts">Supplied Products</label>
+				<div class="col-md-4">
+					<select id="suppliedProducts" name="suppliedProducts" class="form-control" multiple="multiple">
+						<option th:each="product : ${supplier.suppliedProducts}" th:value="${product.productId}" th:text="${product.productName}"></option>
+					</select>
+				</div>
+			</div>
+	</div>
+</body>
+
+</html>

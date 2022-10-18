@@ -14,8 +14,10 @@
 
 	</div>
 	<div align="center">
-		<h1>Supplier Registration</h1>
-		<form action="#" th:action="@{/registerSupplier}" method="post">
+		<h1>Supplier Information Update</h1>
+		<form action="#" th:action="@{/updateSupplier}" method="post">
+			<label>Supplier ID:</label> 
+			<input type="text" th:field="${supplier.supplierId}" readonly/><br /> 
 			<label>Supplier name:</label> 
 			<input type="text" th:field="${supplier.supplierName}" /><br /> 
 			<label>Address:</label> 
@@ -32,7 +34,7 @@
 				</div>
 			</div>
 			
-			<button type="submit" class="btn btn-info col-2">Register Supplier</button>
+			<button type="submit" class="btn btn-info col-2">Update</button>
 		</form>
 
 	</div>
