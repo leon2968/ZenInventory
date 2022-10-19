@@ -4,6 +4,8 @@ import com.zheng.zeninventory.model.CustomerOrder;
 import com.zheng.zeninventory.repository.CustomerOrderRepository;
 import com.zheng.zeninventory.service.CustomerOrderServices;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,7 +21,9 @@ import java.util.Optional;
 
 @Service
 public class CustomerOrderServicesImpl implements CustomerOrderServices{
-
+	
+	private static final Logger log = LoggerFactory.getLogger(CustomerOrderServicesImpl.class);
+	
 	@Autowired
 	private CustomerOrderRepository customerOrderRepository;
 	

@@ -1,5 +1,4 @@
 body {
-  margin: 5px;
 
 }
 
@@ -45,17 +44,12 @@ input:read-only {
 	background: lightgrey;
 }
 
-<!-- credits to w3schools>
+/*credits to w3schools*/
 /* Add a background color to the top navigation */
 .topnav {
-  background-color: #afcecf;
+  background-color: #283857;
   overflow: hidden;
-}
-
-#topnav-override {
-  background-color: #255a58;
-  overflow: hidden;
-  height: 30px;
+  
 }
 
 /* Style the links inside the navigation bar */
@@ -63,19 +57,22 @@ input:read-only {
   /*float: left;*/
   color: #f2f2f2;
   text-align: center;
-  padding: 14px 16px;
+  padding-left: 11px ;
+  padding-right: 11px ;
   text-decoration: none;
   font-size: 17px;
+  font: aria;
+  
 }
 
 /* Change the color of links on hover */
-.topnav a:hover {
+.topnav a:hover:not(.navbar-brand,#theme-toggler) {
   background-color: #ddd;
   color: black;
 }
 
 /* Add a color to the active/current link */
-.topnav a.active {
+.topnav a.active  {
   background-color: #04AA6D;
   color: white;
 }

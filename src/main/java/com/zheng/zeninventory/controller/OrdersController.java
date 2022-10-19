@@ -15,6 +15,9 @@ import com.zheng.zeninventory.service.CustomerOrderServices;
 import com.zheng.zeninventory.service.CustomerServices;
 import com.zheng.zeninventory.service.ProductServices;
 import com.zheng.zeninventory.service.VendorOrderServices;
+
+import lombok.extern.slf4j.Slf4j;
+
 import com.zheng.zeninventory.service.CustomerServices;
 
 import java.util.ArrayList;
@@ -23,6 +26,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Controller
+@Slf4j
 @RequestMapping("/")
 public class OrdersController {
 	

@@ -12,6 +12,9 @@ import com.zheng.zeninventory.model.Supplier;
 import com.zheng.zeninventory.model.Product;
 import com.zheng.zeninventory.model.Supplier;
 import com.zheng.zeninventory.service.SupplierServices;
+
+import lombok.extern.slf4j.Slf4j;
+
 import com.zheng.zeninventory.service.ProductServices;
 import com.zheng.zeninventory.service.SupplierServices;
 
@@ -21,6 +24,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Controller
+@Slf4j
 @RequestMapping("/")
 public class SupplierController {
 

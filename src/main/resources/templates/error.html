@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Error</title>
+
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+	crossorigin="anonymous">
+<link th:href="@{/styles.css}" rel="stylesheet" />
+<script type="text/javascript" th:src="@{/main.js}" async></script>
+</head>
+<body>
+	<h1>ZenInventory Error Page</h1>
+	<h2>We are sorry there were unexpected errors with the service.
+		Please try again later.</h2>
+	<div>
+		<h2><a th:href="@{/index}">Please click here to return to the main
+			page.</a></h2>
+	</div>
+	<table class="table table-striped">
+		<tr>
+			<td>Date</td>
+			<td th:text="${timestamp}" />
+		</tr>
+		<tr>
+			<td>Path</td>
+			<td th:text="${path}" />
+		</tr>
+		<tr>
+			<td>Error</td>
+			<td th:text="${error}" />
+		</tr>
+		<tr>
+			<td>Status</td>
+			<td th:text="${status}" />
+		</tr>
+		<tr>
+			<td>Message</td>
+			<td th:text="${message}" />
+		</tr>
+		<tr>
+			<td>Exception</td>
+			<td th:text="${exception}" />
+		</tr>
+		<tr>
+			<td>Trace</td>
+			<td><pre th:text="${trace}" /></td>
+		</tr>
+	</table>
+</body>
+</html>

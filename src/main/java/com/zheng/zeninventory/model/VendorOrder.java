@@ -9,6 +9,7 @@ import javax.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
@@ -19,6 +20,7 @@ import lombok.ToString;
 @ToString
 @EqualsAndHashCode(callSuper = true)
 @AllArgsConstructor
+@RequiredArgsConstructor
 public class VendorOrder extends Order implements Serializable{
 
 	private static final long serialVersionUID = 1L;

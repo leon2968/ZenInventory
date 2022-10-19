@@ -1,8 +1,6 @@
 # ZenInventory
 A online inventory manager
 
-#Planninng Phase
-
 *What is the goal?
 - To build an inventory management System for business owners
 

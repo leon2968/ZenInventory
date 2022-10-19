@@ -34,7 +34,8 @@ public class Supplier implements Serializable{
 	private String supplierPhoneNo;
 	@ManyToMany(cascade = {
             CascadeType.PERSIST,
-            CascadeType.MERGE
+            CascadeType.MERGE,
+            CascadeType.REFRESH
         })
     @JoinTable(name = "supplier_product",
     		joinColumns = @JoinColumn(name = "supplier_id"),

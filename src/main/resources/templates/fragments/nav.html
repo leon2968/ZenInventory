@@ -1,13 +1,23 @@
 <div th:fragment ="topnav" >
-	<nav >
-		<div class="topnav" id="topnav-override" >
-			<a href="/index" class="here">Home</a> 
+	<nav class="navbar topnav">
+		<div id="topnav-override" >
+			<a class="navbar-brand" href="#">ZenInventory</a>
+			<a href="/index">Home</a> 
 			<a href="/customers">Customers</a>
 			<a href="/suppliers">Suppliers</a> 
 			<a href="/orders">Orders</a> 
 			<a href="/about">About</a> 
 			<a href="/contact">Contact Us</a> 
+			<a th:href="@{/logout}">Logout</a>
 			<!--  <input id="srchbar" type="search" placeholder="Search">-->
+		</div>
+		<div>
+			<a	
+        		href="javascript:void()"
+        		class="btn btn-outline-info btn-lg ml-auto font-weight-bold"
+        		id="theme-toggler"
+        		onclick="toggleTheme()"
+      		></a>
 		</div>
 	</nav>
 </div>

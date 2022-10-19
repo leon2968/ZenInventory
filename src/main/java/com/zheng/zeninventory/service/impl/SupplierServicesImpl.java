@@ -11,7 +11,10 @@ import com.zheng.zeninventory.model.Supplier;
 import com.zheng.zeninventory.repository.SupplierRepository;
 import com.zheng.zeninventory.service.SupplierServices;
 
+import lombok.extern.slf4j.Slf4j;
+
 @Service
+@Slf4j
 public class SupplierServicesImpl implements SupplierServices {
 	
 	@Autowired
@@ -41,6 +44,7 @@ public class SupplierServicesImpl implements SupplierServices {
 			_supplier.setSupplierName(supplier.getSupplierName());
 			_supplier.setSupplierAddress(supplier.getSupplierAddress());
 			_supplier.setSupplierPhoneNo(supplier.getSupplierPhoneNo());
+			_supplier.setSuppliedProducts(supplier.getSuppliedProducts());
 			supplierRepository.save(_supplier);
 		}
 	}

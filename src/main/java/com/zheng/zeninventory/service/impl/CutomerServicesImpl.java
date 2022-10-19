@@ -10,7 +10,10 @@ import com.zheng.zeninventory.model.Customer;
 import com.zheng.zeninventory.repository.CustomerRepository;
 import com.zheng.zeninventory.service.CustomerServices;
 
+import lombok.extern.slf4j.Slf4j;
+
 @Service
+@Slf4j
 public class CutomerServicesImpl implements CustomerServices {
 	
 	@Autowired
@@ -34,8 +37,8 @@ public class CutomerServicesImpl implements CustomerServices {
 	@Override
 	public void updateCustomer(long id, Customer customer) {
 		Optional<Customer> customerData = customerRepository.findById(id);
-		System.out.println(id);
-		System.out.println(customerData.isPresent());
+		log.info("customerData in updateCustomer() method :" + customerData);
+		log.trace("customerData in updateCustomer() method :" + customerData);
 		if (customerData.isPresent()) {
 			Customer _customer = customerData.get();
 			_customer.setCustomerName(customer.getCustomerName());

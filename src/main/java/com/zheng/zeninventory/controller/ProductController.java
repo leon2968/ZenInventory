@@ -1,4 +1,4 @@
-package com.zheng.zeninventory.controller;
+	package com.zheng.zeninventory.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -12,6 +12,9 @@ import com.zheng.zeninventory.model.Product;
 import com.zheng.zeninventory.model.Customer;
 import com.zheng.zeninventory.service.CustomerServices;
 import com.zheng.zeninventory.service.ProductServices;
+
+import lombok.extern.slf4j.Slf4j;
+
 import com.zheng.zeninventory.service.CustomerServices;
 
 import java.util.ArrayList;
@@ -20,6 +23,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Controller
+@Slf4j
 @RequestMapping("/")
 public class ProductController {
 

@@ -11,7 +11,10 @@ import com.zheng.zeninventory.model.VendorOrder;
 import com.zheng.zeninventory.repository.VendorOrderRepository;
 import com.zheng.zeninventory.service.VendorOrderServices;
 
+import lombok.extern.slf4j.Slf4j;
+
 @Service
+@Slf4j
 public class VendorOrderServicesImpl implements VendorOrderServices {
 	
 	@Autowired

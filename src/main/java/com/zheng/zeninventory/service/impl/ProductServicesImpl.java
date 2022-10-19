@@ -11,7 +11,10 @@ import com.zheng.zeninventory.model.Product;
 import com.zheng.zeninventory.repository.ProductRepository;
 import com.zheng.zeninventory.service.ProductServices;
 
+import lombok.extern.slf4j.Slf4j;
+
 @Service
+@Slf4j
 public class ProductServicesImpl implements ProductServices {
 	
 	@Autowired
