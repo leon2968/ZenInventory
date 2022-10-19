@@ -5,7 +5,7 @@ A online inventory manager
 - To build an inventory management System for business owners
 
 *What tech stack are we using?
-- Java, Spring Boot, Spring Web, Hibernate, MariaDB/MySQL, JavaScript, HTML/CSS
+- Java, Spring Boot, Spring Web, Spring Security, Hibernate, MariaDB/MySQL, H2Database, JUnit 5, slf4j, JavaScript, Thymeleaf, HTML/CSS
 
 *What is the design?
 - Sprimg MVC pattern

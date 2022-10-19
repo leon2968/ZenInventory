@@ -32,13 +32,13 @@ if (darkThemed) {
 }
 
 function toggleTheme() {
-	isDark = !darkThemed;
-	if (isDark) {
+	darkThemed  = !darkThemed;
+	if (darkThemed ) {
 		enableDarkTheme();
 	} else {
 		disableDarkTheme();
 	}
-	const META = { isDark };
+	const META = { darkThemed  };
 	localStorage.setItem(LOCAL_STORAGE_THEME, JSON.stringify(META));
 }
 

@@ -22,7 +22,8 @@ public class SecurityConfig {
 		http.csrf().disable()
 				.authorizeRequests()
 				.antMatchers("/index").permitAll()
-				.antMatchers("/register").permitAll()
+				.antMatchers("/registerUser").permitAll()
+				.antMatchers("/registerUser?success").permitAll()
 				.anyRequest().authenticated()
 				.and()
 				.formLogin(
