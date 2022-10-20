@@ -1,17 +1,17 @@
 # ZenInventory
 ZenInventory is an online inventory management tool that aims to provide business owners a digitized, logical, and systematic process to control the inward and outward flow of inventory stock. 
 
-####What is the goal?
+#### What is the goal?
 - To build an inventory management System for business owners
 
 <img src="others/productListScreen.png" width=80%>
 
-####What tech stack are we using?
+#### What tech stack are we using?
 - Java, Spring Boot, Spring Web, Spring Security, JUnit 5, slf4j
 - Hibernate, MariaDB/MySQL, H2Database(in memory testing)
 - Thymeleaf, HTML/CSS, JavaScript
 
-####What is the design pattern?
+#### What is the design pattern?
 - Spring MVC pattern
 - Entities {customers, suppliers, products, customer/vendor orders}
 - Repository -> Service - > ServiceImpl -> Controller
@@ -19,13 +19,13 @@ ZenInventory is an online inventory management tool that aims to provide busines
 
 <img src="others/zeninventoryERD.png" width=80%>
 
-####What functionalities are currently being developed/supported?
+#### What functionalities are currently being developed/supported?
 - Customer management
 - Supplier management
 - Order management (currently developing more features)
 - Secure login management
 
-####What is the plan for future developments?
+#### What is the plan for future developments?
 - User privilege dependency
 - supplier price comparisons
 - Customer recent order search
