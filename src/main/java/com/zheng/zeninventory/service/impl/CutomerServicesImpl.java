@@ -14,6 +14,9 @@ import lombok.extern.slf4j.Slf4j;
 
 @Service
 @Slf4j
+/*
+ * Service implementation for customer
+ */
 public class CutomerServicesImpl implements CustomerServices {
 	
 	@Autowired
@@ -23,12 +26,18 @@ public class CutomerServicesImpl implements CustomerServices {
 	public List<Customer> getAllCustomers() {
 		return customerRepository.findAll();
 	}
-
+	
+	/*
+	 * Method to return customer by id
+	 */
 	@Override
 	public Optional<Customer> getCustomerById(Long id) {
 		return customerRepository.findById(id);
 	}
-
+	
+	/*
+	 * Method to add a new customer
+	 */
 	@Override
 	public void addCustomer(Customer customer) {
 		customerRepository.save(customer);

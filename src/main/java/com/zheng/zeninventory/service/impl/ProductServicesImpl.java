@@ -5,6 +5,8 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.zheng.zeninventory.model.Product;
 import com.zheng.zeninventory.model.Product;
@@ -15,11 +17,17 @@ import lombok.extern.slf4j.Slf4j;
 
 @Service
 @Slf4j
+/*
+ * Service implementation for products
+ */
 public class ProductServicesImpl implements ProductServices {
 	
 	@Autowired
 	private ProductRepository productRepository;
 	
+	/*
+	 * Method to return all products
+	 */
 	@Override
 	public List<Product> getAllProducts() {
 		return productRepository.findAll();
@@ -58,5 +66,25 @@ public class ProductServicesImpl implements ProductServices {
 	public void deleteAllProducts() {
 		productRepository.deleteAll();
 	}
+	
+	/*
+	 * Method to update product quantity
+	 */
+	@Transactional
+	@Override
+	public void updateProductQty(long id, int updatedQty) {
+		productRepository.updateQtyById(id, updatedQty);
+		
+	}
+	
+	/*
+	 * Method to return a list of products with quantity less than minium stock requirement
+	 */
+	@Override
+	public List<Product> findUnderstockProducts() {
+		return productRepository.findUnderstockedProducts();
+	}
+
+
 
 }

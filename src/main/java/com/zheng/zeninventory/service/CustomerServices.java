@@ -5,9 +5,14 @@ import java.util.Optional;
 
 import com.zheng.zeninventory.model.Customer;
 
+/*
+ * Service interface for customer
+ */
 public interface CustomerServices {
 
-
+	/*
+	 * Method to return all customers
+	 */
 	public List<Customer> getAllCustomers();
 
 	public Optional<Customer> getCustomerById(Long id);

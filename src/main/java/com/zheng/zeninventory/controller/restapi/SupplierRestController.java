@@ -14,6 +14,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+/*
+ * REST API controller for supplier
+ */
 @RestController
 @RequestMapping("/api")
 public class SupplierRestController {
@@ -38,19 +41,11 @@ public class SupplierRestController {
 		supplierServices.addSupplier(supplier);
 	}
 
-	/*
-	 *  To update a record, we used the same save() and findById()
-	 */
 	@PutMapping("/suppliers/{id}")
-   public void updateSupplier(@PathVariable("id") long id, @RequestBody Supplier supplier) {
+	public void updateSupplier(@PathVariable("id") long id, @RequestBody Supplier supplier) {
 		supplierServices.updateSupplier(id, supplier);
-   }
+	}
 
-	/*
-	 * To delete a vendor order, you simply use the deleteById() method provided
-	 * by the supplierRepository. Then you pass in the id of the record you want to
-	 * delete.
-	 */
 	@DeleteMapping("/suppliers/{id}")
 	public void deleteSupplier(@PathVariable("id") long id) {
 		supplierServices.deleteSupplier(id);
@@ -63,5 +58,3 @@ public class SupplierRestController {
 	}
 
 }
-
-

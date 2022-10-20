@@ -14,6 +14,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+/*
+ * REST API controller for vendor orders
+ */
 @RestController
 @RequestMapping("/api")
 public class VendorOrderRestController {
@@ -38,19 +41,11 @@ public class VendorOrderRestController {
 		vendorOrderServices.createVendorOrder(vendorOrder);
 	}
 
-	/*
-	 *  To update a record, we used the same save() and findById()
-	 */
 	@PutMapping("/vendorOrders/{id}")
-   public void updateVendorOrder(@PathVariable("id") long id, @RequestBody VendorOrder vendorOrder) {
+	public void updateVendorOrder(@PathVariable("id") long id, @RequestBody VendorOrder vendorOrder) {
 		vendorOrderServices.updateVendorOrder(id, vendorOrder);
-   }
+	}
 
-	/*
-	 * To delete a vendor order, you simply use the deleteById() method provided
-	 * by the vendorOrderRepository. Then you pass in the id of the record you want to
-	 * delete.
-	 */
 	@DeleteMapping("/vendorOrders/{id}")
 	public void deleteVendorOrder(@PathVariable("id") long id) {
 		vendorOrderServices.deleteVendorOrder(id);
@@ -63,4 +58,3 @@ public class VendorOrderRestController {
 	}
 
 }
-

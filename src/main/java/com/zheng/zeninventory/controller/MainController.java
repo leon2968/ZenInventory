@@ -7,6 +7,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import lombok.extern.slf4j.Slf4j;
 
+/*
+ * Controller to handle index, about and contact pages
+ */
 @Controller
 @Slf4j
 @RequestMapping("/")

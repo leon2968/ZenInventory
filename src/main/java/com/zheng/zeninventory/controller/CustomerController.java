@@ -23,6 +23,9 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
+/*
+ * Controller to handle customer related requests
+ */
 @Controller
 @Slf4j
 @RequestMapping("/")
@@ -42,13 +45,18 @@ public class CustomerController {
         return "customer_form";
     }
     
+    /*
+     * Method to handle customer registration request
+     */
     @PostMapping("/registerCustomer")
     public String submitForm(@ModelAttribute("customer") Customer customer) {
-        //System.out.println(customer);
         customerServices.addCustomer(customer);
         return "register_customer_success";
     }
     
+    /*
+     * Method to return customer update page
+     */
     @GetMapping("/updateCustomer/{id}")
     public String showUpdateForm(@PathVariable(value = "id") long id, Model model) {
         Optional<Customer> customer = customerServices.getCustomerById(id);
@@ -57,6 +65,9 @@ public class CustomerController {
         return "customer_update_form";
     }
     
+    /*
+     * Method to handle customer update request
+     */
     @PostMapping("/updateCustomer")
     public String submitUpdateForm(@ModelAttribute("customer") Customer customer, Model model) {
         //System.out.println(customer);
@@ -66,12 +77,18 @@ public class CustomerController {
         return showCustomers(model);
     }
     
+    /*
+     * Method to show a page of all customers
+     */
     @GetMapping("/customers")
     public String showCustomers(Model model) {
     	model.addAttribute("listCustomers", customerServices.getAllCustomers());
         return "customers";
     }    
     
+    /*
+     * Method to handle customer deletion request
+     */
     @GetMapping("/deleteCustomer/{id}")
     public String deleteCustomer(@PathVariable(value = "id") long id) {
     	this.customerServices.deleteCustomer(id);

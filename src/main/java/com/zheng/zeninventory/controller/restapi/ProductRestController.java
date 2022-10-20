@@ -14,6 +14,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+/*
+ * REST API controller for products
+ */
 @RestController
 @RequestMapping("/api")
 public class ProductRestController {
@@ -38,19 +41,11 @@ public class ProductRestController {
 		productServices.registerProduct(product);
 	}
 
-	/*
-	 *  To update a record, we used the same save() and findById()
-	 */
 	@PutMapping("/products/{id}")
-   public void updateProduct(@PathVariable("id") long id, @RequestBody Product product) {
+	public void updateProduct(@PathVariable("id") long id, @RequestBody Product product) {
 		productServices.updateProduct(id, product);
-   }
+	}
 
-	/*
-	 * To delete a vendor order, you simply use the deleteById() method provided
-	 * by the productRepository. Then you pass in the id of the record you want to
-	 * delete.
-	 */
 	@DeleteMapping("/products/{id}")
 	public void deleteProduct(@PathVariable("id") long id) {
 		productServices.deleteProduct(id);
@@ -63,6 +58,3 @@ public class ProductRestController {
 	}
 
 }
-
-
-

@@ -18,7 +18,8 @@ import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
 /*
- * This abstract class does not map to an entity
+ * This abstract class has two child clases CustomerOrder and VendorOrder
+ * It does not map to an entity in database, but the child class will map its properties(@MappedSuperclass)
  */
 @MappedSuperclass
 @RequiredArgsConstructor

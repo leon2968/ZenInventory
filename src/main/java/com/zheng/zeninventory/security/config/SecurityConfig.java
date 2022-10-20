@@ -11,6 +11,9 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @Configuration
 @EnableWebSecurity
+/*
+ * Config for spring security
+ */
 public class SecurityConfig {
 	@Bean
 	public static PasswordEncoder passwordEncoder() {
@@ -18,10 +21,13 @@ public class SecurityConfig {
 	}
 	
 	@Bean
+	/*
+	 * FilterChain only allows user login/register page access before authentication
+	 */
 	public SecurityFilterChain filerChain(HttpSecurity http) throws Exception{
 		http.csrf().disable()
 				.authorizeRequests()
-				.antMatchers("/index").permitAll()
+				.antMatchers("/login").permitAll()
 				.antMatchers("/registerUser").permitAll()
 				.antMatchers("/registerUser?success").permitAll()
 				.anyRequest().authenticated()

@@ -15,11 +15,17 @@ import lombok.extern.slf4j.Slf4j;
 
 @Service
 @Slf4j
+/*
+ * Service implementation for vendor order
+ */
 public class VendorOrderServicesImpl implements VendorOrderServices {
 	
 	@Autowired
 	private VendorOrderRepository vendorOrderRepository;
 	
+	/*
+	 * Method to return all vendor orders
+	 */
 	@Override
 	public List<VendorOrder> getAllVendorOrders() {
 		return vendorOrderRepository.findAll();

@@ -15,6 +15,9 @@ import java.util.stream.Collectors;
 
 @Service
 @Slf4j
+/*
+ * Service implementation for user
+ */
 public class UserServicesImpl implements UserServices {
 
     private UserRepository userRepository;
@@ -25,7 +28,10 @@ public class UserServicesImpl implements UserServices {
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
     }
-
+    
+    /*
+     * Method to create a new user
+     */
     @Override
     public void saveUser(User user) {
         User _user = new User();

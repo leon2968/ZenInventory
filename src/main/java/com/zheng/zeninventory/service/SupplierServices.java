@@ -5,8 +5,14 @@ import java.util.Optional;
 
 import com.zheng.zeninventory.model.Supplier;
 
+/*
+ * Service interface for supplier
+ */
 public interface SupplierServices {
-
+	
+	/*
+	 * Method to return all suppliers
+	 */
 	public List<Supplier> getAllSuppliers();
 
 	public Optional<Supplier> getSupplierById(Long id);

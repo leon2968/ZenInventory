@@ -25,6 +25,9 @@ import lombok.ToString;
 @EqualsAndHashCode(callSuper = true)
 @AllArgsConstructor
 @RequiredArgsConstructor
+/*
+ * Entity for customer order
+ */
 public class CustomerOrder extends Order implements Serializable{
 
 	private static final long serialVersionUID = 1L;

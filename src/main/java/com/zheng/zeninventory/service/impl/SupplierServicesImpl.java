@@ -15,11 +15,17 @@ import lombok.extern.slf4j.Slf4j;
 
 @Service
 @Slf4j
+/*
+ * Service implementation for supplier
+ */
 public class SupplierServicesImpl implements SupplierServices {
 	
 	@Autowired
 	private SupplierRepository supplierRepository;
 	
+	/*
+	 * Method to return all suppliers
+	 */
 	@Override
 	public List<Supplier> getAllSuppliers() {
 		return supplierRepository.findAll();

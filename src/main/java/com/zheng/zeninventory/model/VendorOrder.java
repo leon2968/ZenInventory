@@ -21,6 +21,9 @@ import lombok.ToString;
 @EqualsAndHashCode(callSuper = true)
 @AllArgsConstructor
 @RequiredArgsConstructor
+/*
+ * Entity for vendor order
+ */
 public class VendorOrder extends Order implements Serializable{
 
 	private static final long serialVersionUID = 1L;

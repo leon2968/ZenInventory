@@ -20,6 +20,9 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
+/*
+ * Service implementation for customer order
+ */
 public class CustomerOrderServicesImpl implements CustomerOrderServices{
 	
 	private static final Logger log = LoggerFactory.getLogger(CustomerOrderServicesImpl.class);
@@ -27,9 +30,20 @@ public class CustomerOrderServicesImpl implements CustomerOrderServices{
 	@Autowired
 	private CustomerOrderRepository customerOrderRepository;
 	
+	/*
+	 * Method to return all customer orders
+	 */
 	@Override
 	public List<CustomerOrder> getAllCustomerOrders() {
 		return customerOrderRepository.findAll();
+	}
+	
+	/*
+	 * Method to return all customer orders with missing customer and/or missing product
+	 */
+	@Override
+	public List<CustomerOrder> getAllCustomerOrdersWithMissingInfo() {
+		return customerOrderRepository.findCustomerOrdersWithMissingInfo();
 	}
 	
 	@Override
@@ -37,11 +51,17 @@ public class CustomerOrderServicesImpl implements CustomerOrderServices{
 		return customerOrderRepository.findById(id);
 	}
 	
+	/*
+	 * Method to save new customer
+	 */
 	@Override
 	public void createCustomerOrder(CustomerOrder customerOrder) {
 		customerOrderRepository.save(customerOrder);
 	}
 	
+	/*
+	 * Method to update customer order
+	 */
 	@Override
 	public void updateCustomerOrder(long id, CustomerOrder customerOrder) {
 		Optional<CustomerOrder> customerOrderData = customerOrderRepository.findById(id);
@@ -59,6 +79,9 @@ public class CustomerOrderServicesImpl implements CustomerOrderServices{
 		}
 	}
 	
+	/*
+	 * Method to delete customer order by id
+	 */
 	@Override
 	public void deleteCustomerOrder(long id) {
 		customerOrderRepository.deleteById(id);

@@ -1,7 +1,5 @@
 package com.zheng.zeninventory.controller;
 
-import java.util.List;
-
 import javax.validation.Valid;
 
 import org.springframework.stereotype.Controller;
@@ -18,6 +16,9 @@ import lombok.extern.slf4j.Slf4j;
 
 @Controller
 @Slf4j
+/*
+ * Controller for Spring security login
+ */
 public class AuthController {
 	
 	private UserServices userService;
@@ -26,13 +27,17 @@ public class AuthController {
         this.userService = userService;
     }
 	
-    // handler method to handle login request
+    /*
+     * default login page
+     */
     @GetMapping("/login")
     public String login(){
         return "login";
     }
     
-    // handler method to handle user registration form request
+    /*
+     * default register page
+     */
     @GetMapping("/registerUser")
     public String showRegistrationForm(Model model) {
     	//model object to store form data
@@ -41,14 +46,16 @@ public class AuthController {
     	return "user_form";
     }
     
-    //handler method to handle user registration form submit request
+    /*
+     * controller to handle user registration request
+     */
     @PostMapping("/registerUser")
     public String registerUser(@Valid @ModelAttribute("user") User user, BindingResult result, Model model) {
     	User existingUser = userService.findUserByEmail(user.getEmail());
     	//register user if email is registered/null/empty, return a warning message
     	if(existingUser != null && existingUser.getEmail()!= null && !existingUser.getEmail().isEmpty()) {
     		log.trace(user.toString());
-    		result.rejectValue("email", null, "There is already an account registered with same email");
+    		result.rejectValue("email", null, "This email is already registered by another account.");
     	}
     	
     	if(result.hasErrors()) {

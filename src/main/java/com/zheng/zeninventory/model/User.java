@@ -13,6 +13,9 @@ import lombok.Setter;
 @AllArgsConstructor
 @Entity
 @Table(name="users")
+/*
+ * Entity for user used by Spring security
+ */
 public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

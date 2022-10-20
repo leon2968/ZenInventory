@@ -22,6 +22,10 @@
 		<h1>Customer Order Created</h1>
 		<form class="form-horizontal" action="#" th:object="${customerOrder}">
 			<div class="form-group">
+			<label>Order ID:</label> 
+			<input type="text" th:value="*{orderId}" readonly/>
+			</div>
+			<div class="form-group">
 			<label>Customer Name:</label> 
 			<input type="text" th:value="${customerName}" readonly/>
 			</div>

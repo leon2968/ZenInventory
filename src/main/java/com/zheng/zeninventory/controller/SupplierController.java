@@ -23,6 +23,9 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
+/*
+ * Controller to handle supplier related requests
+ */
 @Controller
 @Slf4j
 @RequestMapping("/")
@@ -34,6 +37,9 @@ public class SupplierController {
 	@Autowired
 	private ProductServices productServices;
 	
+	/*
+	 * Method to return supplier registration form
+	 */
     @GetMapping("/registerSupplier")
     public String showForm(Model model) {
         Supplier supplier = new Supplier();
@@ -42,6 +48,9 @@ public class SupplierController {
         return "supplier_form";
     }
     
+    /*
+     * Method to register a new supplier
+     */
     @PostMapping("/registerSupplier")
     public String submitForm(@ModelAttribute("supplier") Supplier supplier) {
         //System.out.println(supplier);
@@ -49,6 +58,9 @@ public class SupplierController {
         return "register_supplier_success";
     }
     
+    /*
+     * Method to return supplier update form with given id
+     */
     @GetMapping("/updateSupplier/{id}")
     public String showUpdateForm(@PathVariable(value = "id") long id, Model model) {
         Optional<Supplier> supplier = supplierServices.getSupplierById(id);
@@ -57,6 +69,9 @@ public class SupplierController {
         return "supplier_update_form";
     }
     
+    /*
+     * Method to update supplier with given id
+     */
     @PostMapping("/updateSupplier")
     public String submitUpdateForm(@ModelAttribute("supplier") Supplier supplier, Model model) {
         //System.out.println(supplier);
@@ -66,12 +81,18 @@ public class SupplierController {
         return showSuppliers(model);
     }
     
+    /*
+     * Method to show a page of all suppliers
+     */
     @GetMapping("/suppliers")
     public String showSuppliers(Model model) {
     	model.addAttribute("listSuppliers", supplierServices.getAllSuppliers());
         return "suppliers";
     }    
     
+    /*
+     * Method to delete supplier with given id
+     */
     @GetMapping("/deleteSupplier/{id}")
     public String deleteSuppliers(@PathVariable(value = "id") long id) {
     	this.supplierServices.deleteSupplier(id);

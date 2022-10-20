@@ -18,6 +18,9 @@ import lombok.RequiredArgsConstructor;
 @Data
 @Entity
 @Table(name="product")
+/*
+ * Entity for product
+ */
 public class Product implements Serializable{
 	private static final long serialVersionUID = 1L;
 	@Id
