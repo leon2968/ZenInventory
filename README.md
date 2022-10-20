@@ -3,6 +3,7 @@ ZenInventory is an online inventory management tool that aims to provide busines
 
 #### What is the goal?
 - To build an inventory management System for business owners
+- case study link: https://docs.google.com/document/d/1w_hfEKaTbIXq9gXj6MSU9G5tJ0Vsf92Au2KFHWwkHlY/edit
 
 <img src="others/productListScreen.png" width=80%>
 
