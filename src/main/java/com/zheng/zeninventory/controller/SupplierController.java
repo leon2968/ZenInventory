@@ -45,7 +45,6 @@ public class SupplierController {
     @PostMapping("/registerSupplier")
     public String submitForm(@ModelAttribute("supplier") Supplier supplier) {
         //System.out.println(supplier);
-    	System.out.println(supplier);
         supplierServices.addSupplier(supplier);
         return "register_supplier_success";
     }
@@ -62,7 +61,7 @@ public class SupplierController {
     public String submitUpdateForm(@ModelAttribute("supplier") Supplier supplier, Model model) {
         //System.out.println(supplier);
     	long id = supplier.getSupplierId();
-    	System.out.println(supplier);
+    	//System.out.println(supplier);
         supplierServices.updateSupplier(id,supplier);
         return showSuppliers(model);
     }
@@ -74,7 +73,7 @@ public class SupplierController {
     }    
     
     @GetMapping("/deleteSupplier/{id}")
-    public String showSuppliers(@PathVariable(value = "id") long id) {
+    public String deleteSuppliers(@PathVariable(value = "id") long id) {
     	this.supplierServices.deleteSupplier(id);
         return "redirect:/suppliers";
     }    

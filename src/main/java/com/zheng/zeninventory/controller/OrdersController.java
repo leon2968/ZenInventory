@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.zheng.zeninventory.model.Customer;
+import com.zheng.zeninventory.model.CustomerOrder;
 import com.zheng.zeninventory.model.Product;
 import com.zheng.zeninventory.model.Customer;
 import com.zheng.zeninventory.service.CustomerOrderServices;
@@ -42,49 +43,89 @@ public class OrdersController {
 	@Autowired
 	private ProductServices productServices;
 	
-    @GetMapping("/createCustomerOrder")
+    @GetMapping("/registerCustomerOrder")
     public String showForm(Model model) {
-        //Customer customer = new Customer();
-        //model.addAttribute("customer", customer);
-         
-        return "";
+        CustomerOrder newOrder = new CustomerOrder();
+    	List<Customer> listCustomers = customerServices.getAllCustomers();
+        List<Product> listProducts = productServices.getAllProducts();
+        model.addAttribute("listCustomers",listCustomers);
+        model.addAttribute("listProducts",listProducts);
+        model.addAttribute("customerOrder", newOrder);
+        
+        return "customerorder_form";
     }
     
-    @PostMapping("/createCustomerOrder")
-    public String submitForm(@ModelAttribute("customer") Customer customer) {
-        ////System.out.println(customer);
-        //customerServices.addCustomer(customer);
-        return "";
+    @PostMapping("/saveOrUpdateCustomerOrder")
+    public String submitForm(@ModelAttribute("customerOrder") CustomerOrder customerOrder, Model model) {
+    	
+    	//update or create new customer order based on database search result
+    	long id = customerOrder.getOrderId();
+    	Optional<CustomerOrder> existingCustomerOrder = customerOrderServices.getCustomerOrderById(customerOrder.getOrderId());
+    	
+    	if(existingCustomerOrder.isPresent()) {
+    		System.out.println("Existing customerOrder");
+    		customerOrderServices.updateCustomerOrder(id, customerOrder);
+    	} else {
+    		System.out.println("New customerOrder");
+    		customerOrderServices.createCustomerOrder(customerOrder);
+    	}
+    	
+    	//use (unknown) to replace names if they are null
+    	Optional<Customer> customer = Optional.ofNullable(customerOrder.getCustomer());
+    	String customerName = customer.isPresent()? customer.get().getCustomerName() : "(unknown)";
+    	
+    	Optional<Product> product = Optional.ofNullable(customerOrder.getProduct());
+    	String productName = product.isPresent()? product.get().getProductName() : "(unknown)";
+    	
+    	model.addAttribute(customerOrder);
+    	model.addAttribute("customerName", customerName);
+    	model.addAttribute("productName", productName);
+        return "register_customerOrder_success";
     }
     
     @GetMapping("/updateCustomerOrder/{id}")
     public String showUpdateForm(@PathVariable(value = "id") long id, Model model) {
-        Optional<Customer> customer = customerServices.getCustomerById(id);
-        model.addAttribute("customer", customer);
-         
-        return "customer_update_form";
+        Optional<CustomerOrder> customerOrder = customerOrderServices.getCustomerOrderById(id);
+        model.addAttribute("customerOrder", customerOrder);
+        
+    	List<Customer> listCustomers = customerServices.getAllCustomers();
+        List<Product> listProducts = productServices.getAllProducts();
+        model.addAttribute("listCustomers",listCustomers);
+        model.addAttribute("listProducts",listProducts); 
+        
+        model.addAttribute("updateForm","updateForm");
+        return "customerorder_form";
     }
     
-    @PostMapping("/updateCustomerOrder")
-    public String submitUpdateForm(@ModelAttribute("customer") Customer customer, Model model) {
-        //System.out.println(customer);
-    	long id = customer.getCustomerId();
-    	System.out.println(customer);
-        customerServices.updateCustomer(id,customer);
-        return "";
-    }
+//    @PostMapping("/updateCustomerOrder")
+//    public String submitUpdateForm(@ModelAttribute("customerOrder") CustomerOrder customerOrder, Model model) {
+//        //System.out.println(customer);
+//    	long id = customerOrder.getOrderId();
+//    	System.out.println(customerOrder.toString());
+//        customerOrderServices.updateCustomerOrder(id,customerOrder);
+//        return "redirect:/customerOrders";
+//    }
     
-    @GetMapping("/orders")
+    @GetMapping("/customerOrders")
     public String showOrders(Model model) {
-    	//model.addAttribute("listCustomers", customerServices.getAllCustomers());
-        return "orders";
+    	List<CustomerOrder> listCustomerOrders = customerOrderServices.getAllCustomerOrders();
+    	model.addAttribute("listCustomerOrders",listCustomerOrders);
+    	log.trace(listCustomerOrders.get(0).toString());
+    	//System.out.println("***************customer order*************\n" + listCustomerOrders.get(0).toString());
+        return "customerorders";
     }    
     
     @GetMapping("/deleteCustomerOrder/{id}")
-    public String showCustomers(@PathVariable(value = "id") long id) {
-    	this.customerServices.deleteCustomer(id);
-        return "redirect:/orders";
-    }    
+    public String deleteOrders(@PathVariable(value = "id") long id) {
+    	this.customerOrderServices.deleteCustomerOrder(id);
+        return "redirect:/customerOrders";
+    }
+    
+    @GetMapping("/vendorOrders")
+    public String showVendorOrders(Model model) {
+
+        return "orders";
+    }   
 }
 
 

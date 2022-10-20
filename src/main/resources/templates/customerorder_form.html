@@ -1,55 +1,69 @@
-<form class="form-horizontal">
-	<fieldset>
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Customer Order</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+	crossorigin="anonymous">
+<link id="dark-theme-style" rel="stylesheet" />
+<link th:href="@{/styles.css}" rel="stylesheet" />
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script type="text/javascript" th:src="@{/main.js}" async></script>
+</head>
+<body>
+<header style="margin-bottom:20px "><div th:replace="fragments/nav.html :: topnav"></div></header>
 
-		<!-- Form Name -->
-		<legend>Customer Order Creation</legend>
-
-		<!-- Text input-->
-		<div class="form-group">
-			<label class="col-md-4 control-label" for="customerName">Customer
-				Name</label>
-			<div class="col-md-5">
-				<input id="customerName" name="customerName" type="text"
-					placeholder="Enter a name" class="form-control input-md"
-					required="">
-
+	</div>
+	<div align="center">
+		<h1>Customer Order</h1>
+		<form class="form-horizontal" action="#" th:action="@{/saveOrUpdateCustomerOrder}" method="post" th:object="${customerOrder}">
+			<div class="form-group" th:if="${updateForm} == 'updateForm'">
+			<label>Customer ID:</label> 
+			<input type="text" th:field="*{orderId}" readonly/>
 			</div>
-		</div>
-
-		<!-- Select Basic -->
-		<div class="form-group">
-			<label class="col-md-4 control-label" for="purchasedProduct">Purchased
-				Product</label>
-			<div class="col-md-4">
-				<select id="purchasedProduct" name="purchasedProduct"
-					class="form-control">
-					<option value="1">Product 1</option>
-					<option value="2">Product 2</option>
-				</select>
+			<div class="form-group">
+			<label>Customer Name:</label> 
+			<select class="form-control-static" th:field="*{customer}">
+    			<option value="">Select Customer</option>
+    			<option th:each="customer : ${listCustomers}" th:value="${customer.customerId}" th:text="${customer.customerId}+'.'+${customer.customerName}"></option>
+    		</select> 
 			</div>
-		</div>
-
-		<!-- Text input-->
-		<div class="form-group">
-			<label class="col-md-4 control-label" for="purchasedQuantity">Purchased
-				Quantity</label>
-			<div class="col-md-5">
-				<input id="purchasedQuantity" name="purchasedQuantity" type="text"
-					placeholder="Enter a number" class="form-control input-md">
-
+			<div class="form-group">
+			<label>Purchased Product:</label> 
+			<select class="form-control-static" th:field="*{product}">
+    			<option value="">Select Product</option>
+    			<option th:each="product : ${listProducts}" th:value="${product.productId}" th:text="${product.productId}+'.'+${product.productName}"></option>
+    		</select>
+    		</div>
+    		<div class="form-group">
+			<label>Purchased Qauantity:</label> 
+			<input type="number" th:field="*{purchaseQuantity}" />
 			</div>
-		</div>
-
-		<!-- Text input-->
-		<div class="form-group">
-			<label class="col-md-4 control-label" for="orderDate">Order
-				Date</label>
-			<div class="col-md-5">
-				<input id="orderDate" name="orderDate" type="text"
-					placeholder="Enter a date" class="form-control input-md">
-
+			<div class="form-group">
+			<label>Purchased Price:</label> 
+			<input type="number" step="0.01" th:field="*{purchasePrice}" />
 			</div>
-		</div>
+			<div class="form-group ">
+			<label>Order Date:</label> 
+			<input type="date" th:field="*{orderDate}" required="required" />
+			</div>
+			<div class="form-group">
+			<label>Order Status:</label> 
+			<select class="form-control-static" th:field="*{status}">
+    			<option value="Pending">Pending</option>
+    			<option value="Shipped">Shipped</option>
+    			<option value="Received">Received</option>
+    			<option value="Returned">Returned</option>
+    		</select>
+			</div>
+			
+			<button type="submit" class="btn btn-info col-2">Submit</button>
+		</form>
 
-	</fieldset>
-</form>
+	</div>
+</body>
+</html>

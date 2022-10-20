@@ -3,24 +3,37 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Product Registration</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+	crossorigin="anonymous">
+<link id="dark-theme-style" rel="stylesheet" />
 <link th:href="@{/styles.css}" rel="stylesheet" />
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script type="text/javascript" th:src="@{/main.js}" async></script>
 </head>
 <body>
+<header style="margin-bottom:20px "><div th:replace="fragments/nav.html :: topnav"></div></header>
+
+	</div>
 	<div align="center">
 		<h1>Product Registration</h1>
-		<form action="#" th:action="@{/registerProduct}" method="post"
-			th:object="${product}">
-			<label>Product Name:</label> <input type="text" th:field="*{productName}" /><br />
-
-			<label>Product Quantity:</label> <input type="text" th:field="*{productQuantity}" /><br />
+		<form action="#" th:action="@{/registerProduct}" method="post" th:object="${product}">
+			<label>Product name:</label> 
+			<input type="text" th:field="*{productName}" /><br /> 
+			<label>Product Description:</label> 
+			<input type="text" th:field="*{productDesc}" /><br /> 
+			<label>Product Quantity:</label> 
+			<input type="text" th:field="*{productQuantity}" /><br />
+			<label>Minimum Stock Requirement:</label> 
+			<input type="text" th:field="*{minimumStock}" /><br />
 			
-			<label>Minimum Stock:</label> <input type="text" th:field="*{minimumStock}" /><br />
-
-			<label>Product Description :</label> <textarea th:field="*{productDesc}" ></textarea></textarea><br />
-			
-			<button type="submit">Register</button>
+			<button type="submit" class="btn btn-info col-2">Register
+				Product</button>
 		</form>
-		
+
 	</div>
 </body>
 </html>

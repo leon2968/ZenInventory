@@ -52,6 +52,9 @@ public class CustomerOrderServicesImpl implements CustomerOrderServices{
 			_customerOrder.setProduct(customerOrder.getProduct());
 			_customerOrder.setPurchaseQuantity(customerOrder.getPurchaseQuantity());
 			_customerOrder.setPurchasePrice(customerOrder.getPurchasePrice());
+			_customerOrder.setStatus(customerOrder.getStatus());
+			_customerOrder.setOrderDate(customerOrder.getOrderDate());
+			//System.out.println(_customerOrder.toString());
 			customerOrderRepository.save(_customerOrder);
 		}
 	}

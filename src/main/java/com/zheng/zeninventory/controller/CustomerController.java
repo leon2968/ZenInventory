@@ -73,7 +73,7 @@ public class CustomerController {
     }    
     
     @GetMapping("/deleteCustomer/{id}")
-    public String showCustomers(@PathVariable(value = "id") long id) {
+    public String deleteCustomer(@PathVariable(value = "id") long id) {
     	this.customerServices.deleteCustomer(id);
         return "redirect:/customers";
     }    

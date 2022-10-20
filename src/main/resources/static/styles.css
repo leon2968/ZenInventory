@@ -9,7 +9,7 @@ label {
 	text-align: left;
 }
 
-input[type=text], input[type=password], select {
+input[type=text], input[type=password], input[type=date], input[type=number],input[type=datetime-local], select {
 	display: inline-block;
 	width: 200px;
 }
@@ -48,12 +48,12 @@ input:read-only {
 /* Add a background color to the top navigation */
 .topnav {
   background-color: #283857;
-  overflow: hidden;
+  /*overflow: hidden;*/
   
 }
 
 /* Style the links inside the navigation bar */
-.topnav a {
+.topnav a:not(.dropdown-item) {
   /*float: left;*/
   color: #f2f2f2;
   text-align: center;
@@ -72,7 +72,11 @@ input:read-only {
 }
 
 /* Add a color to the active/current link */
-.topnav a.active  {
+.topnav a.active {
   background-color: #04AA6D;
   color: white;
 }
+
+.dropdown-item {
+	color: #808080;
+}	

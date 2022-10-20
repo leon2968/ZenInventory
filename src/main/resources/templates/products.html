@@ -3,7 +3,7 @@
 
 <head>
 <meta charset="ISO-8859-1">
-<title>Suppliers Management</title>
+<title>Products Management</title>
 
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
@@ -21,34 +21,34 @@
 	<header style="margin-bottom:20px "><div th:replace="fragments/nav.html :: topnav"></div></header>
 
 	<div class="container my-2">
-		<h1>Suppliers List</h1>
+		<h1>Products List</h1>
 
-		<a th:href="@{/registerSupplier}" class="btn btn-primary btn-sm mb-3">
-			Add Supplier </a>
+		<a th:href="@{/registerProduct}" class="btn btn-primary btn-sm mb-3">
+			Add Product </a>
 
 		<table border="1" class="table table-striped table-responsive-md">
 			<thead>
 				<tr>
-					<th>Supplier ID</th>
-					<th>Supplier Name</th>
-					<th>Supplier Address</th>
-					<th>Supplier Phone No.</th>
-					<th>Supplied Products</th>
+					<th>Product ID</th>
+					<th>Product Name</th>
+					<th>Product Description</th>
+					<th>Product Quantity</th>
+					<th>Minimum Stock Requirement</th>
 					<th>Actions</th>
 				</tr>
 			</thead>
 			<tbody>
-				<tr th:each="supplier : ${listSuppliers}">
-					<td th:text="${supplier.supplierId}"></td>
-					<td th:text="${supplier.supplierName}"></td>
-					<td th:text="${supplier.supplierAddress}"></td>
-					<td th:text="${supplier.supplierPhoneNo}"></td>
-					<td th:text="${#strings.listJoin(supplier.suppliedProducts.![productName], ',')}"></td>
+				<tr th:each="product : ${listProducts}">
+					<td th:text="${product.productId}"></td>
+					<td th:text="${product.productName}"></td>
+					<td th:text="${product.productDesc}"></td>
+					<td th:text="${product.productQuantity}"></td>
+					<td th:text="${product.minimumStock}">></td>
 					<td><a
-						th:href="@{/updateSupplier/{id}(id=${supplier.supplierId})}"
+						th:href="@{/updateProduct/{id}(id=${product.productId})}"
 						class="btn btn-primary">Update</a> <a
-						th:href="@{/deleteSupplier/{id}(id=${supplier.supplierId})}"
-						th:onclick="return confirm('Are you sure you want to delete this supplier [[${supplier.supplierName}]]')"
+						th:href="@{/deleteProduct/{id}(id=${product.productId})}"
+						th:onclick="return confirm('Are you sure you want to delete this product[[${product.productName}]]')"
 						class="delete btn btn-danger">Delete</a></td>
 				</tr>
 			</tbody>

@@ -23,7 +23,7 @@ const DARK_THEME_URL = "https://bootswatch.com/5/darkly/bootstrap.min.css";
 const DARK_STYLE_LINK = document.getElementById("dark-theme-style");
 const THEME_TOGGLER = document.getElementById("theme-toggler");
 
-let darkThemed = LOCAL_META_DATA && LOCAL_META_DATA.isDark;
+let darkThemed = LOCAL_META_DATA && LOCAL_META_DATA.darkThemed;
 // check if user has already selected dark theme earlier
 if (darkThemed) {
 	enableDarkTheme();

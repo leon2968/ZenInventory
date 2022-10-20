@@ -1,15 +1,27 @@
 <div th:fragment ="topnav" >
-	<nav class="navbar topnav">
-		<div id="topnav-override" >
-			<a class="navbar-brand" href="#">ZenInventory</a>
-			<a href="/index">Home</a> 
-			<a href="/customers">Customers</a>
-			<a href="/suppliers">Suppliers</a> 
-			<a href="/orders">Orders</a> 
-			<a href="/about">About</a> 
-			<a href="/contact">Contact Us</a> 
-			<a th:href="@{/logout}">Logout</a>
+	<nav class="navbar navbar-expand-lg topnav">
+		<div class ="collapse navbar-collapse" id="topnav-override" >
+		<ul class="navbar-nav mr-auto">
+			<li class="nav-item"><a class="navbar-brand" href="#">ZenInventory</a></li>
+			<li class="nav-item"><a class="nav-link" href="/index">Home</a></li>
+			<li class="nav-item"><a class="nav-link" href="/customers">Customers</a></li>
+			<li class="nav-item"><a class="nav-link" href="/suppliers">Suppliers</a></li>
+			<li class="nav-item"><a class="nav-link" href="/products">Products</a></li>  
+  			<li class="nav-item dropdown">
+        		<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          			Orders
+        		</a>
+        		<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          			<a class="dropdown-item" href="/customerOrders">Customer Orders</a>
+          			<div class="dropdown-divider"></div>
+          			<a class="dropdown-item" href="/vendorOrders">Vendor Orders</a>
+        		</div>
+     		</li>
+			<li class="nav-item"><a class="nav-link" href="/about">About</a></li> 
+			<li class="nav-item"><a class="nav-link" href="/contact">Contact Us</a></li> 
+			<li class="nav-item"><a class="nav-link" th:href="@{/logout}">Logout</a></li>
 			<!--  <input id="srchbar" type="search" placeholder="Search">-->
+		</ul>
 		</div>
 		<div>
 			<a	
