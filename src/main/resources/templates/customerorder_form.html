@@ -22,7 +22,7 @@
 		<h1>Customer Order</h1>
 		<form class="form-horizontal" action="#" th:action="@{/saveOrUpdateCustomerOrder}" method="post" th:object="${customerOrder}">
 			<div class="form-group" th:if="${updateForm} == 'updateForm'">
-			<label>Customer ID:</label> 
+			<label>Customer Order ID:</label> 
 			<input type="text" th:field="*{orderId}" readonly/>
 			</div>
 			<div class="form-group">
