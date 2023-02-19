@@ -7,8 +7,9 @@ FROM maven:3.8.3-openjdk-17 AS build
 COPY . .
 
 # unpack fat jar
-RUN mvn clean package
-RUN mkdir -p target/dependency && (cd target/dependency; jar -xf ../*.jar)
+RUN mvn clean #package
+RUN mvn spring-boot:build-image
+#RUN mkdir -p target/dependency && (cd target/dependency; jar -xf ../*.jar)
 
 #
 # Package stage
@@ -18,10 +19,10 @@ RUN mkdir -p target/dependency && (cd target/dependency; jar -xf ../*.jar)
 # ENV PORT=8080
 #EXPOSE 8080
 #ENTRYPOINT ["java","-jar","app.jar"]
-FROM openjdk:17-jdk-slim
-VOLUME /tmp
-ARG DEPENDENCY=/target/dependency
-COPY --from=build ${DEPENDENCY}/BOOT-INF/lib /app/lib
-COPY --from=build ${DEPENDENCY}/META-INF /app/META-INF
-COPY --from=build ${DEPENDENCY}/BOOT-INF/classes /app
-ENTRYPOINT ["java","-cp","app:app/lib/*","zeninventory.Application"]
+#FROM openjdk:17-jdk-slim
+#VOLUME /tmp
+#ARG DEPENDENCY=/target/dependency
+#COPY --from=build ${DEPENDENCY}/BOOT-INF/lib /app/lib
+#COPY --from=build ${DEPENDENCY}/META-INF /app/META-INF
+#COPY --from=build ${DEPENDENCY}/BOOT-INF/classes /app
+#ENTRYPOINT ["java","-cp","app:app/lib/*","zeninventory.Application"]
