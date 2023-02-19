@@ -4,7 +4,7 @@
 #FROM maven:4.0.0-jdk-17 AS build
 #COPY . .
 #RUN mvn clean package
-FROM openjdk:17-jdk-slim as build
+FROM maven:4.0.0 AS build
 #WORKDIR /workspace/app
 
 COPY . .
