@@ -7,13 +7,10 @@
 FROM openjdk:17-jdk-slim as build
 #WORKDIR /workspace/app
 
-COPY mvnw .
-COPY .mvn .mvn
-COPY pom.xml .
-COPY src src
+COPY . .
 
 # unpack fat jar
-RUN ./mvnw install -DskipTests
+RUN mvn mvn clean package
 RUN mkdir -p target/dependency && (cd target/dependency; jar -xf ../*.jar)
 
 #
