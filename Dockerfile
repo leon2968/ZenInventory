@@ -10,7 +10,7 @@ FROM maven:3.8.2-jdk-11 AS build
 COPY . .
 
 # unpack fat jar
-RUN mvn mvn clean package
+RUN mvn clean package
 RUN mkdir -p target/dependency && (cd target/dependency; jar -xf ../*.jar)
 
 #
