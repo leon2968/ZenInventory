@@ -4,7 +4,7 @@
 #FROM maven:4.0.0-jdk-17 AS build
 #COPY . .
 #RUN mvn clean package
-FROM maven:4.0.0 AS build
+FROM eclipse-temurin:17-jdk AS build
 #WORKDIR /workspace/app
 
 COPY . .
