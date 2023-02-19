@@ -8,7 +8,7 @@ COPY . .
 
 # unpack fat jar
 RUN mvn clean package
-RUN mvn spring-boot:build-image
+RUN ./mvnw spring-boot:build-image
 #RUN mkdir -p target/dependency && (cd target/dependency; jar -xf ../*.jar)
 
 #
