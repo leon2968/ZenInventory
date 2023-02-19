@@ -7,7 +7,7 @@ FROM maven:3.8.3-openjdk-17 AS build
 COPY . .
 
 # unpack fat jar
-RUN mvn clean #package
+RUN mvn clean package
 RUN mvn spring-boot:build-image
 #RUN mkdir -p target/dependency && (cd target/dependency; jar -xf ../*.jar)
 
