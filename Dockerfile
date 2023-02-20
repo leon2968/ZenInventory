@@ -10,6 +10,6 @@ RUN mvn clean package -DskipTests
 # https://hub.docker.com/_/eclipse-temurin
 FROM eclipse-temurin:latest
 WORKDIR /app
-COPY --from=build /app/target/my-app.jar .
+COPY --from=build /app/target/zeninventory*.jar .
 EXPOSE 8080
-CMD ["java", "-jar", "my-app.jar"]
+CMD ["java", "-jar", "zeninventory.jar"]
