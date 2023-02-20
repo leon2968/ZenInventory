@@ -1,6 +1,6 @@
 services:
   - name: zeninventory-db
-    type: pserv
+    type: web
     env: docker
     plan: free
     autoDeploy: false
@@ -8,11 +8,10 @@ services:
     disk:
       name: mariadb
       mountPath: /var/lib/mariadb
-      sizeGB: 4GB
+      sizeGB: 10
   - name: zeninventory-app
     type: web
     plan: free
     env: docker
     dockerfilePath: ./docker/Dockerfile-java17maven
-    envFrom:
-      - service: zeninventory-db
+
