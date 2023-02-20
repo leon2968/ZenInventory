@@ -9,19 +9,10 @@ services:
       name: mariadb
       mountPath: /var/lib/mariadb
       sizeGB: 4GB
-    env:
-      MYSQL_ROOT_PASSWORD: "databaseAdmin"
-      MYSQL_USER: "root"
-      MYSQL_PASSWORD: "databaseAdmin"
-      MYSQL_DATABASE: "zeninventory"
   - name: zeninventory-app
     type: web
     plan: free
     env: docker
-    env:
-      SPRING_DATASOURCE_URL: "jdbc:mariadb://zeninventory-db:3306/zeninventory"
-      SPRING_DATASOURCE_USERNAME: "root"
-      SPRING_DATASOURCE_PASSWORD: "databaseAdmin"
     dockerfile: ./docker/Dockerfile-java17maven
     envFrom:
       - service: zeninventory-db
