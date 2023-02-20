@@ -16,7 +16,7 @@ ZenInventory is an online inventory management tool that aims to provide busines
 - Java, Spring Boot, Spring Web, Spring Security, JUnit 5, slf4j
 - Hibernate, MariaDB/MySQL, H2Database(in memory testing)
 - Thymeleaf, HTML/CSS, JavaScript
-- Docker(for Demo)
+- Docker(cloud deployment)
 
 #### What is the design pattern?
 - Spring MVC pattern
