@@ -2,7 +2,7 @@ services:
   db:
     image: mariadb
     context: ./docker/mariadb
-    dockerfile: Dockerfile-mariadb
+    dockerfile: ./docker/mariadb/Dockerfile-mariadb
     environment:
       MYSQL_ROOT_PASSWORD: databaseAdmin
       MYSQL_DATABASE: zeninventory
@@ -13,7 +13,7 @@ services:
   app:
     build:
       context: ./
-      dockerfile: ./docker/Dockerfile-java17spring
+      dockerfile: ./docker/Dockerfile-java17maven
     environment:
       SPRING_DATASOURCE_URL: mariadb://db:3306/zeninventory
       SPRING_DATASOURCE_USERNAME: root
