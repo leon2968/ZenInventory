@@ -1,6 +1,6 @@
 services:
   - name: zeninventory-db
-    type: pser
+    type: pserv
     env: docker
     plan: free
     autoDeploy: false
