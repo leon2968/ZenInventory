@@ -12,4 +12,4 @@ FROM eclipse-temurin:latest
 WORKDIR /app
 COPY --from=build /app/target/zeninventory*.jar .
 EXPOSE 8080
-CMD ["java", "-jar", "zeninventory.jar"]
+CMD ["java", "-jar", "zeninventory*.jar"]
