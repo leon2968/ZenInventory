@@ -1,3 +1,5 @@
+# Not in use yet, I haven't found a free service to host docker container for MySQL/MariaDB
+
 version: "3.9"
 services:
   db:
