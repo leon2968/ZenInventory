@@ -7,8 +7,8 @@ COPY src ./src
 RUN mvn clean package -DskipTests
 
 # Use AdoptOpenJDK for the runtime image.
-# https://hub.docker.com/_/adoptopenjdk
-FROM adoptopenjdk:17-jre-hotspot
+# https://hub.docker.com/_/eclipse-temurin
+FROM eclipse-temurin:latest
 WORKDIR /app
 COPY --from=build /app/target/my-app.jar .
 EXPOSE 8080
