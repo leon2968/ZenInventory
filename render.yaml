@@ -4,7 +4,7 @@ services:
     env: docker
     plan: free
     autoDeploy: false
-    dockerfiler: ./docker/mariadb/Dockerfile-mariadb
+    dockerfile: docker/mariadb/Dockerfile-mariadb
     disk:
       name: mariadb
       mountPath: /var/lib/mariadb
