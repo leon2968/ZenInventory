@@ -1,0 +1,17 @@
+services:
+  - name: zeninventory-db
+    type: web
+    env: docker
+    plan: free
+    autoDeploy: false
+    dockerfilePath: docker/mariadb/Dockerfile-mariadb
+    disk:
+      name: mariadb
+      mountPath: /var/lib/mariadb
+      sizeGB: 10
+  - name: zeninventory-app
+    type: web
+    plan: free
+    env: docker
+    dockerfilePath: ./docker/Dockerfile-java17maven
+

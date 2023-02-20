@@ -1,0 +1,28 @@
+version: "3.9"
+services:
+  db:
+    build:
+      context: ./docker/mariadb
+      dockerfile: Dockerfile-mariadb
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=databaseAdmin
+      - MYSQL_DATABASE=zeninventory
+    volumes:
+      - ./docker/mariadb/data:/var/lib/mysql
+    ports:
+      - "3306:3306"
+  app:
+    build:
+      context: ./
+      dockerfile: ./docker/Dockerfile-java17maven
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mariadb://db:3306/zeninventory
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=databaseAdmin
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+    links:
+      - db
