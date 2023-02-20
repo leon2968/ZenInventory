@@ -15,7 +15,7 @@ services:
   app:
     build:
       context: ./
-      dockerfile: ./docker/Dockerfile-java17spring
+      dockerfile: ./docker/Dockerfile-java17maven
     environment:
       - SPRING_DATASOURCE_URL=jdbc:mariadb://db:3306/zeninventory
       - SPRING_DATASOURCE_USERNAME=root
