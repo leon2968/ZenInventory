@@ -4,7 +4,7 @@ services:
     env: docker
     plan: free
     autoDeploy: false
-    dockerfile: docker/mariadb/Dockerfile-mariadb
+    dockerfilePath: docker/mariadb/Dockerfile-mariadb
     disk:
       name: mariadb
       mountPath: /var/lib/mariadb
@@ -13,6 +13,6 @@ services:
     type: web
     plan: free
     env: docker
-    dockerfile: ./docker/Dockerfile-java17maven
+    dockerfilePath: ./docker/Dockerfile-java17maven
     envFrom:
       - service: zeninventory-db
