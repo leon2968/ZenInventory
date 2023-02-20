@@ -4,7 +4,7 @@ ZenInventory is an online inventory management tool that aims to provide busines
 #### Demo Link: https://zeninventory-render.onrender.com | Login: Email:test@test.com | Password: test123 
 - Notice: 
   1. This is for demo purpose only; don't use it in a real business environment.
-  2. The application and the database are hosted seperately on free cloud services so it is slow.
+  2. The application and the database are hosted seperately on free cloud services so it can be very slow.
 
 #### What is the goal?
 - To build an inventory management System for business owners
