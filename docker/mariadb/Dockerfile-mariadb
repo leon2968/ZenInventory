@@ -1,8 +1,0 @@
-#
-# Create a docker image for MariaDB
-#
-FROM mariadb:latest
-
-ENV MYSQL_ROOT_PASSWORD=databaseAdmin
-
-COPY init.sql /docker-entrypoint-initdb.d/
