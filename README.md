@@ -2,7 +2,7 @@
 ZenInventory is an online inventory management tool that aims to provide business owners a digitized, logical, and systematic process to control the inward and outward flow of inventory stock. 
 
 #### Demo Links:  https://zeninventorygcp-ekvq36bzaq-uc.a.run.app (Google Cloud Platform)
-                  Login: Email:test@test.com
+                  Email: test@test.com
                   Password: test123 
 - Notice: 
   1. This is for demo purpose only; don't use it in a real business environment.
