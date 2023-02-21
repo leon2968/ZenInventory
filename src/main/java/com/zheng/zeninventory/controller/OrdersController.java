@@ -93,7 +93,7 @@ public class OrdersController {
     	model.addAttribute(customerOrder);
     	model.addAttribute("customerName", customerName);
     	model.addAttribute("productName", productName);
-        return "register_customerOrder_success";
+        return "register_customerorder_success";
     }
     
     /*
