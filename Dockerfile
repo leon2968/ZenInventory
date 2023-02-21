@@ -6,6 +6,8 @@ COPY pom.xml .
 COPY src ./src
 RUN mvn clean package -DskipTests
 
+ENV JAVA_TOOL_OPTIONS="-Dserver.address=0.0.0.0"
+
 # Use AdoptOpenJDK for the runtime image.
 # https://hub.docker.com/_/eclipse-temurin
 FROM eclipse-temurin:latest
